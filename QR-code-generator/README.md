@@ -28,11 +28,18 @@ This project allows you to generate QR codes for any URL input by the user. The 
 3. The generated QR code will be saved as a .svg file in the project directory with the same name as the URL.
 
 ## Example 
-  ```bash
-  Enter your url:  www.google.com
-  You entered www.google.com
+1. ```bash
+   ✔ Enter your url:  www.google.com
 
-![image](https://github.com/user-attachments/assets/e3a4202b-8d46-4d0d-afe3-582bd8da1992)
+![image](https://github.com/user-attachments/assets/79d76e41-40ba-465f-ae2f-629e174c6756)
+
+## Dependencies
+------------
+
+*   `inquirer`: For interactive CLI prompts.
+*   `qr-image`: For generating QR codes in SVG format.
+
+
 
 
 
