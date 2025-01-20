@@ -1,4 +1,5 @@
 # QR Code Generator
+------------
 
 This project allows you to generate QR codes for any URL input by the user. The QR codes are generated in SVG format and saved to the local directory.
 
@@ -34,7 +35,6 @@ This project allows you to generate QR codes for any URL input by the user. The 
 ![image](https://github.com/user-attachments/assets/79d76e41-40ba-465f-ae2f-629e174c6756)
 
 ## Dependencies
-------------
 
 *   `inquirer`: For interactive CLI prompts.
 *   `qr-image`: For generating QR codes in SVG format.
