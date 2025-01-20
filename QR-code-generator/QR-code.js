@@ -25,6 +25,6 @@ inquirer
         else{
             console.log("An unexpected error occurred", error);
         }
-    })
+    });
 
     
