@@ -1,0 +1,55 @@
+</main>
+<footer class="magic-footer">
+    <div class="footer-content">
+        <div class="footer-bubbles">
+            <div class="bubble bubble-4"></div>
+            <div class="bubble bubble-5"></div>
+        </div>
+        
+        <div class="footer-columns">
+            <div class="footer-section">
+                <h3 class="footer-heading">🌈 Follow the Magic</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">🐦 Twitter</a>
+                    <a href="#" class="social-link">📸 Instagram</a>
+                    <a href="#" class="social-link">👾 GitHub</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-heading">📜 Magical Disclaimer</h3>
+                <p class="disclaimer">
+                    All thoughts here are pure imagination fuel! ✨ 
+                    Made with ❤️ and a sprinkle of CSS magic.
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="copyright">
+                🎉 Party on! © <%= new Date().getFullYear() %> Blogger 
+                <span class="rocket">🚀</span>
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      const header = document.querySelector('.magic-header');
+      
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('scroll-down');
+        header.classList.remove('scroll-up');
+      } else {
+        header.classList.add('scroll-up');
+        header.classList.remove('scroll-down');
+      }
+      lastScroll = currentScroll;
+    });
+  </script>
+
+</body>
+</html>

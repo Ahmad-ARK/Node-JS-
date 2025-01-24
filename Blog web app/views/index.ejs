@@ -1,0 +1,38 @@
+<!-- index.ejs -->
+<%- include("partials/header.ejs") %>
+
+<section class="container">
+    <div class="header-section">
+        <h1 class="main-title">📡 BLOGGER</h1>
+        <p class="subtitle">Where ideas come to play!</p>
+        <a href="/create" class="button primary-btn">Create Magic</a>
+    </div>
+
+    <div class="blog-list">
+        <% if(posts.length > 0) { %>
+            <div class="posts-container">
+                <% posts.forEach((post) => { %>
+                    <article class="post-card">
+                        <a href="/posts/<%= post.id %>" class="post-link">
+                            <div class="post-content">
+                                <h3><%= post.name %></h3>
+                                <% const preview = post.body.split('\n')[0].slice(0, 100); %>
+                                <p class="preview-text"><%= preview %>...</p>
+                                <div class="post-meta">
+                                    <time><%= post.createdAt.toLocaleDateString() %></time>
+                                    <span class="read-more">Explore</span>
+                                </div>
+                            </div>
+                        </a>
+                    </article>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div class="empty-state">
+                <p>🎉 Woohoo! You get to create the first post!</p>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>

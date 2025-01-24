@@ -1,0 +1,467 @@
+/* styles.css - Enhanced Cyberpunk Masterpiece */
+:root {
+    --neon-pink: #ff3ea5;
+    --cyber-teal: #00f5ff;
+    --matrix-lime: #00ff9d;
+    --void-black: #000;
+    --hacker-green: #00ff00;
+    --retro-purple: #6c00ff;
+    --scanline: repeating-linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(255, 62, 165, 0.1) 2px,
+      rgba(0, 245, 255, 0.1) 3px
+    );
+  }
+  
+  /* === Cyberpunk Universe Base === */
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  body {
+    font-family: 'Space Mono', monospace;
+    background: radial-gradient(
+      circle at center,
+      #0a0a2e 0%,
+      #000 100%
+    );
+    color: var(--hacker-green);
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    border: 3px solid var(--neon-pink);
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  /* === CRT Terminal Effect === */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--scanline);
+    pointer-events: none;
+    z-index: 999;
+    animation: scan 8s linear infinite;
+  }
+  
+  @keyframes scan {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+  }
+  
+  /* === Neural Interface Header === */
+  .magic-header {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(10, 10, 46, 0.97) 100%
+    );
+    border-bottom: 3px solid var(--cyber-teal);
+    padding: 1.5rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(0, 245, 255, 0.1);
+  }
+  
+  .magic-nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .brand {
+    font-size: 2.8rem;
+    background: linear-gradient(
+      45deg,
+      var(--neon-pink),
+      var(--cyber-teal)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(255, 62, 165, 0.4);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .brand:hover {
+    transform: skew(-5deg) scale(1.05);
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 3rem;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 12px;
+    border: 2px solid var(--matrix-lime);
+  }
+  
+  .nav-link {
+    color: var(--cyber-teal);
+    padding: 0.8rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 62, 165, 0.3),
+      transparent
+    );
+    transition: 0.6s;
+  }
+  
+  .nav-link:hover {
+    color: var(--matrix-lime);
+    text-shadow: 0 0 25px var(--matrix-lime);
+  }
+  
+  .nav-link:hover::before {
+    left: 100%;
+  }
+  
+  /* === Main Cyberdeck Interface === */
+  .container {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 3rem;
+    background: rgba(0, 0, 0, 0.8);
+    border: 3px solid var(--cyber-teal);
+    border-radius: 20px;
+    box-shadow: 0 0 60px rgba(0, 245, 255, 0.2);
+    position: relative;
+    flex: 1;
+  }
+  
+  .header-section {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+  }
+  
+  .main-title {
+    font-size: 4rem;
+    background: linear-gradient(
+      45deg,
+      var(--neon-pink),
+      var(--cyber-teal)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 0 40px rgba(0, 245, 255, 0.3);
+  }
+  
+  .subtitle {
+    font-size: 1.8rem;
+    color: var(--matrix-lime);
+    text-shadow: 0 0 20px var(--matrix-lime);
+  }
+  
+  /* === Data Fragments (Posts) === */
+  .posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-top: 3rem;
+  }
+  
+  .post-card {
+    background: linear-gradient(
+      145deg,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(10, 10, 46, 0.9) 100%
+    );
+    padding: 2.5rem;
+    border: 2px solid var(--neon-pink);
+    border-radius: 18px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .post-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+      600px circle at var(--x) var(--y),
+      rgba(255, 62, 165, 0.15),
+      transparent 40%
+    );
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .post-card:hover {
+    transform: translateY(-8px) rotate(1deg);
+    box-shadow: 0 0 50px rgba(255, 62, 165, 0.3);
+  }
+  
+  .post-card:hover::before {
+    opacity: 1;
+  }
+  
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(0, 255, 157, 0.2);
+  }
+  
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(
+      45deg,
+      var(--neon-pink),
+      var(--retro-purple)
+    );
+    border-radius: 30px;
+    color: white;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  
+  .read-more:hover {
+    background: linear-gradient(
+      45deg,
+      var(--retro-purple),
+      var(--cyber-teal)
+    );
+    transform: skew(-5deg) scale(1.05);
+  }
+  
+  /* === Neural Input System (Forms) === */
+  .magic-form {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 3rem;
+    border: 3px solid var(--matrix-lime);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 255, 157, 0.2);
+  }
+  
+  .form-group {
+    margin-bottom: 2.5rem;
+  }
+  
+  .magic-input,
+  .magic-textarea {
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid var(--cyber-teal);
+    color: var(--hacker-green);
+    font-size: 1.1rem;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .magic-input:focus,
+  .magic-textarea:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 40px rgba(255, 62, 165, 0.3);
+    transform: scale(1.02);
+  }
+  
+  .form-actions {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  
+  /* === Cybernetic Enhancements (Buttons) === */
+  .button {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+  }
+  
+  .button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.6s;
+  }
+  
+  .button:hover::before {
+    left: 150%;
+  }
+  
+  .primary-btn {
+    background: linear-gradient(
+      45deg,
+      var(--neon-pink),
+      var(--retro-purple)
+    );
+    color: white;
+    border-color: var(--matrix-lime);
+  }
+  
+  .secondary-btn {
+    background: linear-gradient(
+      45deg,
+      var(--cyber-teal),
+      var(--matrix-lime)
+    );
+    color: var(--void-black);
+    border-color: var(--neon-pink);
+  }
+  
+  .button:hover {
+    transform: translateY(-3px) skew(-3deg);
+    box-shadow: 0 8px 30px rgba(0, 245, 255, 0.4);
+  }
+  
+  /* === Network Hub (Footer) === */
+  .magic-footer {
+    background: linear-gradient(
+      45deg,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(10, 10, 46, 0.97) 100%
+    );
+    border-top: 3px solid var(--neon-pink);
+    padding: 4rem 0 2rem;
+    margin-top: 6rem;
+    position: relative;
+  }
+  
+  .magic-footer::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(
+      90deg,
+      var(--neon-pink),
+      var(--cyber-teal),
+      var(--matrix-lime)
+    );
+  }
+  
+  .footer-columns {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 4rem;
+  }
+  
+  .social-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .social-link {
+    padding: 1.2rem;
+    border: 2px solid var(--cyber-teal);
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .social-link:hover {
+    border-color: var(--neon-pink);
+    transform: rotate(10deg) scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 62, 165, 0.3);
+  }
+  
+  /* === Mobile Neural Link === */
+  @media (max-width: 768px) {
+    .magic-nav {
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+    }
+  
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+    }
+  
+    .container {
+      margin: 2rem auto;
+      padding: 2rem;
+    }
+  
+    .main-title {
+      font-size: 3rem;
+    }
+  
+    .posts-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* === System Animations === */
+  @keyframes glitch {
+    0% { transform: translate(-2px, 2px); }
+    20% { transform: translate(-2px, -2px); }
+    40% { transform: translate(2px, 2px); }
+    60% { transform: translate(2px, -2px); }
+    80% { transform: translate(-2px, -2px); }
+    100% { transform: translate(0); }
+  }
+  
+  @keyframes neon-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+  }

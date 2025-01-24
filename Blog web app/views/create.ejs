@@ -1,0 +1,31 @@
+<%- include("partials/header.ejs") %>
+
+    <section class="container create-container">
+        <div class="header-section">
+            <h1 class="main-title">✨ Create Magic</h1>
+            <p class="subtitle">Let your ideas sparkle!</p>
+        </div>
+
+        <div class="creation-space">
+            <form action="/posts" method="POST" class="magic-form">
+                <div class="form-group">
+                    <label class="form-label">🎯 Post Title</label>
+                    <input type="text" name="blogName" class="magic-input" placeholder="Your awesome title here..."
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">📖 Story Time</label>
+                    <textarea name="blogBody" class="magic-textarea" rows="10" placeholder="Once upon a time..."
+                        required></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <a href="/" class="button secondary-btn">⏹ CANCEL</a>
+                    <button class="button primary-btn">🚀 LAUNCH POST</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
