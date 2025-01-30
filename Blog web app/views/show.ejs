@@ -1,22 +1,22 @@
 <%- include("partials/header.ejs") %>
 
-<section class="container post-container">
-    <div class="header-section">
-        <h1 class="main-title">🌟 <%= post.name %></h1>
-        <p class="subtitle">Created on 📅 <%= post.createdAt.toLocaleDateString() %></p>
-    </div>
+<section class="container post-view">
+    <a href="/" class="back-link">← Back to All Posts</a>
+    
+    <article class="full-post">
+        <header class="post-header">
+            <h1 class="post-title"><%= post.name %></h1>
+            <div class="post-meta">
+                <time>Posted on <%= post.createdAt.toLocaleDateString() %></time>
+            </div>
+        </header>
 
-    <div class="story-time">
-        <article class="story-book">
+        <div class="post-body">
             <% post.body.split('\n').forEach(paragraph => { %>
-                <p class="story-paragraph"><%= paragraph %></p>
+                <p><%= paragraph %></p>
             <% }) %>
-        </article>
-
-        <a href="/" class="bubble-btn back-bubble">
-            🔙 Back to Adventures
-        </a>
-    </div>
+        </div>
+    </article>
 </section>
 
 <%- include("partials/footer.ejs") %>
