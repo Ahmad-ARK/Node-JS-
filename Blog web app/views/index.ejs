@@ -12,13 +12,21 @@
         <div class="myBlogs">
             <h2>Your Blogs</h2>
 
+            <% if (locals.error) { %>
+                <p class="error"><%= error %></p>
+            <% } %>
+
             <div class="blogs">
                 <% if(locals.posts && posts.length> 0){ %>
                     <ul class="post-cover">
                         <% posts.forEach(post=> { %>
                             <li class="post-preview">
-                                <%= post.name %>
-                                <p><%= post.body %></p>
+                                <h3><%= post.name %></h3>
+                                <p><%= post.preview %></p>
+                                <a href="/posts/<%= post.id %>">Read More</a>
+                                <form action="/posts/<%= post.id %>?_method=DELETE" method="POST" style="display: inline;">
+                                    <button type="submit" class="delete-button">Delete</button>
+                                </form>
                             </li>
                             <% }) %>
                     </ul>
